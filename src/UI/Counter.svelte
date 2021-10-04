@@ -37,20 +37,22 @@
 	<button on:click={decrementCount} disabled='{minReached}'>-</button>
 	{count}
 	<button on:click={incrementCount} disabled='{maxReached}'>+</button>
-	{#if minReached || maxReached}
-		<div class='message'>
-			{#if minReached}
-				<small class='error'>
-					The minimum value of {min} reached
-				</small>
-			{:else}
-				<small class='error'>
-					The maximum value of {max} reached
-				</small>
-			{/if}
+	<div class='message'>
+		{#if minReached}
+			<small class='error'>
+				The minimum value of {min} reached
+			</small>
+		{:else if maxReached}
+			<small class='error'>
+				The maximum value of {max} reached
+			</small>
+		{:else}
+			<small class='info'>
+				Click on the + or - button to increase or decrease the value by {stepSize}
+			</small>
+		{/if}
 
-		</div>
-	{/if}
+	</div>
 
 </div>
 
