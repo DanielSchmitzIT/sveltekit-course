@@ -1,14 +1,6 @@
 <script>
 
-	let startCount = 5;
 
-	function handleMaxReached(evt) {
-		console.log(evt);
-	}
-
-	function handleMinReached(evt) {
-		console.log(evt);
-	}
 </script>
 <h1>Welcome to SvelteKit</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quam!</p>
