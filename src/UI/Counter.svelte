@@ -1,18 +1,33 @@
+<svelte:options tag='my-counter' />
+
 <script>
+
 	export let count = 0;
+	export let min = 0;
+	export let max = 100;
+	export let stepSize = 1;
+
 
 	function incrementCount() {
-		count++;
+		count += stepSize;
+		if (count > max) {
+			count = max;
+		}
 	}
 
 	function decrementCount() {
-		count--;
+		count -= stepSize;
+		if (count < min) {
+			count = min;
+		}
 	}
 </script>
 
-<button on:click={decrementCount}>-</button>
-{count}
-<button on:click={incrementCount}>+</button>
+<div>
+	<button on:click={decrementCount}>-</button>
+	{count}
+	<button on:click={incrementCount}>+</button>
+</div>
 
 <style>
     button {
