@@ -1,11 +1,14 @@
 <script>
 
+	import { createEventDispatcher } from 'svelte';
+
 	export let count = 0;
 	export let min = 0;
 	export let max = 100;
 	export let stepSize = 1;
 	let maxReached = false;
 	let minReached = false;
+	const dispatcher = createEventDispatcher();
 
 
 	function incrementCount() {
@@ -14,6 +17,7 @@
 		if (count > max) {
 			count = max;
 			maxReached = true;
+			dispatcher('maxReached', max);
 		}
 	}
 
@@ -23,6 +27,7 @@
 		if (count < min) {
 			count = min;
 			minReached = true;
+			dispatcher('minReached', min);
 		}
 	}
 </script>
