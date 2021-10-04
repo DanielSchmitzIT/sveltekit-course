@@ -32,10 +32,21 @@
 	<button on:click={decrementCount} disabled='{minReached}'>-</button>
 	{count}
 	<button on:click={incrementCount} disabled='{maxReached}'>+</button>
+	{#if minReached || maxReached}
+		<div class='message'>
+			<small class='error'>
+				The value should be between {min} and {max}
+			</small>
+		</div>
+	{/if}
 
 </div>
 
 <style>
+    .error {
+        color: red;
+    }
+
     button {
         background: #efefef;
         border: 1px solid gray;
