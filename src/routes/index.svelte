@@ -1,9 +1,9 @@
 <script>
-
-
+	import Counter from '../UI/Counter.svelte';
 </script>
 <h1>Welcome to SvelteKit</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, quam!</p>
+<Counter />
 
 <!--
 <button>Test</button>

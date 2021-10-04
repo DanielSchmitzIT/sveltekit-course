@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 
 	import { createEventDispatcher } from 'svelte';
 
@@ -56,24 +56,26 @@
 
 </div>
 
-<style>
-    .error {
-        color: red;
+<style lang='scss'>
+  .error {
+    color: red;
+  }
+
+  button {
+    background: #efefef;
+    border: 1px solid gray;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &[disabled]:hover {
+      background: inherit;
     }
 
-    button {
-        background: #efefef;
-        border: 1px solid gray;
-        padding: 5px 10px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+    &:hover {
+      background: gray;
 
-    button[disabled]:hover {
-        background: inherit;
     }
+  }
 
-    button:hover {
-        background: gray;
-    }
 </style>
