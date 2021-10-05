@@ -1,12 +1,5 @@
-<script>
-	import Header from '$lib/Header.svelte';
-	import Footer from '$lib/Footer.svelte';
-</script>
-
-<Header />
-
 <h1>Blog</h1>
-<div class='subtitle'>Categories</div>
+<div class='subtitle'>Categories (<a href='/blog/categories'>Open</a>)</div>
 <div class='categories-wrapper'>
 	<p>Lorem ipsum dolor sit amet.</p>
 </div>
@@ -19,4 +12,9 @@
 <div class='post-wrapper'>
 
 </div>
-<Footer />
+
+<style>
+    .subtitle {
+        font-size: 22px;
+    }
+</style>

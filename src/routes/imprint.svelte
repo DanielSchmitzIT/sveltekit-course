@@ -1,9 +1,4 @@
-<script>
-	import Header from '$lib/Header.svelte';
-	import Footer from '$lib/Footer.svelte';
-</script>
 
-<Header />
 
 <h1>Imprint</h1>
 <address>
@@ -21,4 +16,3 @@
 	</div>
 </address>
 
-<Footer />
