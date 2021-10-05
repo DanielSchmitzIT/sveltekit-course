@@ -1,3 +1,10 @@
+<script>
+	import Header from '$lib/Header.svelte';
+	import Footer from '$lib/Footer.svelte';
+</script>
+
+<Header />
+
 <h1>Imprint</h1>
 <address>
 	<div class='address-field'>
@@ -13,3 +20,5 @@
 		<span class='field-value'>USA</span>
 	</div>
 </address>
+
+<Footer />
