@@ -1,0 +1,11 @@
+@import "static/scss/variables";
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+}
