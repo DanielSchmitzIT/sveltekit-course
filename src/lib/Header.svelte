@@ -1,11 +1,15 @@
+<script>
+	import { page } from '$app/stores';
+</script>
+
 <nav>
 	<div>
-		<a href='/'>Home</a>
-		<a href='/blog'>Blog</a>
+		<a class:active={$page.path === '/'} href='/'>Home</a>
+		<a class:active={$page.path.indexOf('/blog') === 0} href='/blog'>Blog</a>
 	</div>
 	<div>
-		<a href='/about'>About</a>
-		<a href='/imprint'>Imprint</a>
+		<a class:active={$page.path === '/about'} href='/about'>About</a>
+		<a class:active={$page.path === '/imprint'} href='/imprint'>Imprint</a>
 	</div>
 </nav>
 
@@ -19,8 +23,12 @@
     box-shadow: 0 3px 1px -2px rgb(0, 0, 0 / 20%), 0 2px 2px 0 rgb(0, 0, 0 / 14%), 0 1px 5px 0 rgb(0, 0, 0 / 12%);
   }
 
+  a.active {
+    border-bottom: 3px solid white;
+  }
+
   a {
-    padding: 15px;
+    padding: 15px 15px 12px;
     color: white;
     display: table-cell;
 
