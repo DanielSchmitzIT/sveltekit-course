@@ -2,7 +2,6 @@
 	import type { Load } from '@sveltejs/kit';
 
 	export const load: Load = async ({ fetch }) => {
-		console.log('here');
 		const res = await fetch('/api/blog/categories');
 		const data = await res.json();
 		return { props: { categories: data.categories } };
