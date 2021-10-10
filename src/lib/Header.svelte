@@ -1,15 +1,21 @@
-<script>
+<script lang='ts'>
 	import { page } from '$app/stores';
+	import { prefetch } from '$app/navigation';
+	import { browser } from '$app/env';
+
+	if (browser) {
+		prefetch('/about');
+	}
 </script>
 
 <nav>
 	<div>
-		<a class:active={$page.path === '/'} href='/'>Home</a>
-		<a class:active={$page.path.indexOf('/blog') === 0} href='/blog'>Blog</a>
+		<a sveltekit:prefetch class:active={$page.path === '/'} href='/'>Home</a>
+		<a sveltekit:prefetch class:active={$page.path.indexOf('/blog') === 0} href='/blog'>Blog</a>
 	</div>
 	<div>
 		<a class:active={$page.path === '/about'} href='/about'>About</a>
-		<a class:active={$page.path === '/imprint'} href='/imprint'>Imprint</a>
+		<a sveltekit:prefetch class:active={$page.path === '/imprint'} href='/imprint'>Imprint</a>
 	</div>
 </nav>
 
