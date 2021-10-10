@@ -29,8 +29,18 @@
 	};
 </script>
 
-<h1>Categories Index</h1>
+<div class='title'>
+	<h1>Categories Index</h1>
+	<a class='button' href='categories/form'>Add category</a>
+</div>
 
 <CategoriesOverview categories='{categories}' />
 
 <button on:click={addPost}>Generate new Category</button>
+
+<style>
+    .title {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
