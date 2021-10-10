@@ -1,25 +1,25 @@
 <h1>Categories Index</h1>
 
 <div class='categories-wrapper'>
-	<a class='category' href='categories/information-technology'>
+	<a sveltekit:prefetch class='category' href='categories/information-technology'>
 		<img src='/categories/information-technology.jpg' alt='Information Technology'>
 		<span class='title'>
 			Information - Technology
 		</span>
 	</a>
-	<a class='category' href='categories/business'>
+	<a sveltekit:prefetch class='category' href='categories/business'>
 		<img src='/categories/business.jpg' alt='Business'>
 		<span class='title'>
 			Business
 		</span>
 	</a>
-	<a class='category' href='categories/marketing'>
+	<a sveltekit:prefetch class='category' href='categories/marketing'>
 		<img src='/categories/marketing.jpg' alt='Marketing'>
 		<span class='title'>
 			Marketing
 		</span>
 	</a>
-	<a class='category' href='categories/work-life-balance'>
+	<a sveltekit:prefetch class='category' href='categories/work-life-balance'>
 		<img src='/categories/work-life-balance.jpg' alt='Relax'>
 		<span class='title'>
 			Work life balance
