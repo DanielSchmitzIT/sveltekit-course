@@ -7,3 +7,15 @@ export function get(request) {
 		}
 	};
 }
+
+
+export function post({ params, body }) {
+	body = JSON.parse(body);
+	categories.push({
+		title: body.title,
+		img: body.img
+	});
+	return {
+		body
+	};
+}
