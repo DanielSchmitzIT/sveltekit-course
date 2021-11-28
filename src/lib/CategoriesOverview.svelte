@@ -5,7 +5,7 @@
 
 <div class='categories-wrapper'>
 	{#each categories as category}
-		<a sveltekit:prefetch class='category' href='categories/{category.title}'>
+		<a sveltekit:prefetch class='category' href='/blog/categories/{category.title}'>
 			<img src='{category.img}' alt='Information Technology'>
 			<span class='title'>
 				{category.title}

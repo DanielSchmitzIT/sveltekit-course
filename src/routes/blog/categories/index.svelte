@@ -1,19 +1,16 @@
 <script lang='ts' context='module'>
 	import type { Load } from '@sveltejs/kit';
+	import { categoryCrud } from './category-crud';
 
-	export const load: Load = async ({ fetch }) => {
-		const res = await fetch('/api/blog/categories');
-		const data = await res.json();
-		return { props: { categories: data.categories } };
-	};
-
-
+	export const load: Load = categoryCrud.loadCategories;
 </script>
 
 <script lang='ts'>
 	import CategoriesOverview from '$lib/CategoriesOverview.svelte';
 
 	export let categories;
+
+
 
 	const addPost = async () => {
 		const response = await fetch('/api/blog/categories', {
