@@ -15,7 +15,17 @@
 				'Content-Type': 'application/json'
 			}
 		}).then(result => result.json())
-			.then(unboxed => console.log(unboxed));
+			.then(unboxed => {
+				return fetch('http://localhost:3000/api/auth/login', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						accessToken: unboxed.accessToken
+					})
+				});
+			});
 	}
 </script>
 

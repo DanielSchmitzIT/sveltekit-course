@@ -4,7 +4,7 @@
 	export async function load(load: LoadInput) {
 		const category = await load.fetch(`http://localhost:5000/api/v1/categories/${load.page.params.categoryName}`, {
 			headers: {
-				'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVudGVyLXlvdXItZW1haWxAZ21haWwuY29tIiwiaWQiOjMzLCJpYXQiOjE2Mzg2MjM5MDQsImV4cCI6MTYzODYzMTEwNH0.n71xXkm9acecloY2dfav_8cX3NPORZi2JNp6lUwsr34`
+				'Authorization': `Bearer ${load.session.blogAccessToken}`
 			}
 		}).then(val => val.json());
 		return {
