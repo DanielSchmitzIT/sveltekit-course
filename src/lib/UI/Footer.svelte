@@ -7,7 +7,7 @@
 
 <style lang='scss'>
 
-  @import "static/scss/variables";
+  @import "../../../static/scss/variables";
 
   footer {
     text-align: center;

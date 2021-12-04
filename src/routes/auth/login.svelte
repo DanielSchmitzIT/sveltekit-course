@@ -1,3 +1,18 @@
+<script context='module' lang='ts'>
+	import type { Load } from '@sveltejs/kit/types/page';
+
+
+	export const load: Load = (access) => {
+		if (access.session.blogAccessToken) {
+			return {
+				status: 302,
+				redirect: '/'
+			};
+		}
+	};
+
+</script>
+
 <script lang='ts'>
 	export let credentials = {
 		email: '',

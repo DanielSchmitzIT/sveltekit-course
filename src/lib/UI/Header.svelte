@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import { page } from '$app/stores';
+	import { page, session } from '$app/stores';
 	import { prefetch } from '$app/navigation';
 	import { browser } from '$app/env';
 
@@ -16,11 +16,16 @@
 	<div>
 		<a class:active={$page.path === '/about'} href='/about'>About</a>
 		<a sveltekit:prefetch class:active={$page.path === '/imprint'} href='/imprint'>Imprint</a>
+		{#if ($session.isLoggedIn)}
+			<a sveltekit:prefetch class:active={$page.path === '/auth/logout'} href='/auth/logout'>Logout</a>
+		{:else}
+			<a sveltekit:prefetch class:active={$page.path === '/auth/login'} href='/auth/login'>Login</a>
+		{/if}
 	</div>
 </nav>
 
 <style lang='scss'>
-  @import "./static/scss/variables";
+  @import "../../../static/scss/variables";
 
   nav {
     background: $header-color;
