@@ -13,15 +13,15 @@ export const handle: Handle = async ({ request, resolve }) => {
 		request.locals.blogAccessToken = null;
 		response.headers['set-cookie'] = cookie.serialize('blogAccessToken', null, {
 			httpOnly: true,
-			domain: 'http://localhost:3000/',
+			domain: 'localhost',
 			path: '/',
-			expires: new Date(new Date().getTime() + (10 * 24 * 60 * 60 * 1000))
+			expires: new Date(Date.now() - 10000)
 		});
 	}
 	if (request.locals.blogAccessToken) {
 		response.headers['set-cookie'] = cookie.serialize('blogAccessToken', request.locals.blogAccessToken, {
 			httpOnly: true,
-			domain: 'http://localhost:3000/',
+			domain: 'localhost',
 			path: '/',
 			expires: new Date(new Date().getTime() + (10 * 24 * 60 * 60 * 1000))
 		});
@@ -32,9 +32,13 @@ export const handle: Handle = async ({ request, resolve }) => {
 
 
 export async function getSession(request) {
-	return {
-		isLoggedIn: !!jwtDecode(request.locals.blogAccessToken),
-		email: (jwtDecode(request.locals.blogAccessToken) as any).email,
-		'blogAccessToken': request.locals.blogAccessToken
-	};
+	if (request.locals?.blogAccessToken) {
+		return {
+			isLoggedIn: !!jwtDecode(request.locals?.blogAccessToken),
+			email: (jwtDecode(request.locals?.blogAccessToken) as any)?.email,
+			'blogAccessToken': request.locals.blogAccessToken
+		};
+	} else {
+		return {};
+	}
 }

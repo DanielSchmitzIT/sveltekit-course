@@ -1,5 +1,6 @@
 <script context='module' lang='ts'>
 	import type { Load } from '@sveltejs/kit/types/page';
+	import { session } from '$app/stores';
 
 
 	export const load: Load = (access) => {
@@ -8,12 +9,17 @@
 				status: 302,
 				redirect: '/'
 			};
+		} else {
+			return {};
 		}
 	};
 
 </script>
 
 <script lang='ts'>
+	import { goto } from '$app/navigation';
+	import jwtDecode from 'jwt-decode';
+
 	export let credentials = {
 		email: '',
 		password: ''
@@ -31,6 +37,13 @@
 			}
 		}).then(result => result.json())
 			.then(unboxed => {
+				session.update(value => {
+					return {
+						isLoggedIn: !!jwtDecode(unboxed.accessToken),
+						email: (jwtDecode(unboxed.accessToken) as any)?.email,
+						'blogAccessToken': unboxed.accessToken
+					};
+				});
 				return fetch('http://localhost:3000/api/auth/login', {
 					method: 'POST',
 					headers: {
@@ -40,7 +53,9 @@
 						accessToken: unboxed.accessToken
 					})
 				});
-			});
+			}).then(val => {
+			goto('/');
+		});
 	}
 </script>
 

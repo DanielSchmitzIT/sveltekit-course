@@ -1,5 +1,6 @@
 <script lang='ts' context='module'>
 	import type { Load } from '@sveltejs/kit';
+	import { session } from '$app/stores';
 
 	export const load: Load = input => {
 		return input.fetch('http://localhost:3000/api/auth/logout', {
@@ -10,6 +11,9 @@
 			}
 		}).then(res => res.json())
 			.then(parsed => {
+				session.update(value => {
+					return {};
+				});
 				return {
 					status: 302,
 					redirect: '/'
