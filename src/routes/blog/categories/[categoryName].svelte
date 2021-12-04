@@ -1,16 +1,17 @@
 <script lang='ts' context='module'>
 	import type { LoadInput } from '@sveltejs/kit';
 	import { variables } from '$lib/variables';
+	import { CategoryApi } from '../../../swagger';
+	import { GetBlogConfig } from '$lib/blog-config';
 
 	export async function load(load: LoadInput) {
-		const category = await load.fetch(`${variables.BLOG_API}/categories/${load.page.params.categoryName}`, {
-			headers: {
-				'Authorization': `Bearer ${load.session.blogAccessToken}`
-			}
-		}).then(val => val.json());
-		return {
-			props: { category }
-		};
+		return new CategoryApi(GetBlogConfig(load.session)).getCategoryByName({
+			name: load.page.params.categoryName
+		}).then(val => {
+			return {
+				props: { category: val }
+			};
+		});
 	}
 </script>
 <script lang='ts'>

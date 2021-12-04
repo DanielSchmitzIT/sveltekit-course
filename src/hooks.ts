@@ -7,6 +7,9 @@ export const handle: Handle = async ({ request, resolve }) => {
 	if (cookies.blogAccessToken) {
 		request.locals.blogAccessToken = cookies.blogAccessToken;
 	}
+
+
+
 	const response = await resolve(request);
 
 	if (request.locals.logout) {

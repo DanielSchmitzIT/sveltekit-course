@@ -1,7 +1,17 @@
-<script context='module' lang="ts">
+<script context='module' lang='ts'>
 	import type { Load } from '@sveltejs/kit';
-	import { categoryCrud } from './categories/category-crud';
-	export const load: Load = categoryCrud.loadCategories;
+	import { CategoryApi } from '../../swagger';
+	import { GetBlogConfig } from '$lib/blog-config';
+
+	export const load: Load = input => {
+		return new CategoryApi(GetBlogConfig(input.session)).getAllCategories().then(val => {
+			return {
+				props: {
+					categories: val
+				}
+			};
+		});
+	};
 </script>
 <script>
 	import CategoriesOverview from '$lib/CategoriesOverview.svelte';

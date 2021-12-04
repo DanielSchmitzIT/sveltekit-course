@@ -1,3 +1,13 @@
+<script context='module' lang='ts'>
+	import { Configuration } from '../swagger';
+	import { variables } from '$lib/variables';
+
+	export const BlogConfig = new Configuration({
+		basePath: variables.BLOG_BASE,
+		accessToken: ''
+	});
+</script>
+
 <script>
 	import Header from '$lib/UI/Header.svelte';
 	import Footer from '$lib/UI/Footer.svelte';

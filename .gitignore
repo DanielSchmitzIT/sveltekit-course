@@ -4,3 +4,5 @@ node_modules
 /.svelte-kit
 /package
 .idea
+src/swagger
+!src/swagger/tsconfig.json
