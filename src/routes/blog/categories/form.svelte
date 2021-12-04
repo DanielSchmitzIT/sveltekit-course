@@ -6,7 +6,7 @@
 	const category: Category = {
 		title: null,
 		img: null
-	};
+	} as any;
 
 	let files: FileList | [] = [];
 

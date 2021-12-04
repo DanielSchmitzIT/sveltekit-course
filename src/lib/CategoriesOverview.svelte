@@ -5,10 +5,10 @@
 
 <div class='categories-wrapper'>
 	{#each categories as category}
-		<a sveltekit:prefetch class='category' href='/blog/categories/{category.title}'>
-			<img src='{category.img}' alt='Information Technology'>
+		<a sveltekit:prefetch class='category' href='/blog/categories/{category.name}'>
+			<img src='http://localhost:5000/{category.image.path}' alt='Information Technology'>
 			<span class='title'>
-				{category.title}
+				{category.name}
 			</span>
 		</a>
 	{/each}

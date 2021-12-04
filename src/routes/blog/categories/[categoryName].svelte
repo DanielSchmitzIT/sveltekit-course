@@ -2,7 +2,11 @@
 	import type { LoadInput } from '@sveltejs/kit';
 
 	export async function load(load: LoadInput) {
-		const category = await load.fetch(`http://localhost:3000/api/blog/categories/${load.page.params.categoryName}`).then(val => val.json());
+		const category = await load.fetch(`http://localhost:5000/api/v1/categories/${load.page.params.categoryName}`, {
+			headers: {
+				'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVudGVyLXlvdXItZW1haWxAZ21haWwuY29tIiwiaWQiOjMzLCJpYXQiOjE2Mzg2MjM5MDQsImV4cCI6MTYzODYzMTEwNH0.n71xXkm9acecloY2dfav_8cX3NPORZi2JNp6lUwsr34`
+			}
+		}).then(val => val.json());
 		return {
 			props: { category }
 		};
@@ -14,13 +18,10 @@
 
 	export let category: Category;
 
-	onMount(() => {
-		console.log(category);
-	});
 </script>
 
-<h1>{category.title}</h1>
-<img width='400px' src='{category.img}'>
+<h1>{category.name}</h1>
+<img width='400px' src='http://localhost:5000/{category.image.path}'>
 
 <div>
 	<a href='..'>Back</a>

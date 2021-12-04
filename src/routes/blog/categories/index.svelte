@@ -22,7 +22,6 @@
 		});
 		const addedCategory = await response.json();
 		categories = [...categories, addedCategory];
-		categories[0].title = 'Hello';
 	};
 </script>
 

@@ -1,4 +1,12 @@
 export class Category {
-	title: string;
-	img: string;
+	'id': number;
+	'name': string;
+	'description': string;
+	'image': {
+		'path': string,
+		'mimeType': string
+	};
+	'authorFirstName': string;
+	'authorLastName': string;
+	'authorFullName': string;
 }
