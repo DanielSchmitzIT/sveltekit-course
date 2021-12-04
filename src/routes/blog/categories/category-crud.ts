@@ -1,6 +1,8 @@
+import { variables } from '$lib/variables';
+
 export const categoryCrud = {
 	loadCategories: async (request) => {
-		const res = await request.fetch('http://localhost:5000/api/v1/categories', {
+		const res = await request.fetch(`${variables.BLOG_API}/categories`, {
 			headers: {
 				'Authorization': `Bearer ${request.session.blogAccessToken}`
 			}

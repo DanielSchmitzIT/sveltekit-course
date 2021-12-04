@@ -1,4 +1,6 @@
 <script lang='ts'>
+	import { variables } from '$lib/variables';
+
 	export let categories = [];
 </script>
 
@@ -6,7 +8,7 @@
 <div class='categories-wrapper'>
 	{#each categories as category}
 		<a sveltekit:prefetch class='category' href='/blog/categories/{category.name}'>
-			<img src='http://localhost:5000/{category.image.path}' alt='Information Technology'>
+			<img src='{variables.BLOG_BASE}/{category.image.path}' alt='Information Technology'>
 			<span class='title'>
 				{category.name}
 			</span>
